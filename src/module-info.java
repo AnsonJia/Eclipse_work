@@ -1,0 +1,2 @@
+module eclipse_work {
+}
