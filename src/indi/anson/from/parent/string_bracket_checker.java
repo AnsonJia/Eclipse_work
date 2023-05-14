@@ -12,7 +12,7 @@ public class string_bracket_checker {
 		strInput.close();
 		String opBrackets = "{([<";
 		String closeBrackets = "})]>";
-		int bracketCheck = 0;
+
 		boolean trigger = false;
 		int prevBrac = 0;
 
@@ -21,7 +21,7 @@ public class string_bracket_checker {
 		for (int i=0; i<sentence.length(); i++) {
 			String character = String.valueOf(sentence.charAt(i));
 			if (closeBrackets.contains(character)) {
-				bracketCheck --;
+
 
 				
 				if (newBrac.size() == 0 || sentence.charAt(i) != newBrac.get(newBrac.size()-1)) {
@@ -33,7 +33,7 @@ public class string_bracket_checker {
 
 			} 
 			else if (opBrackets.contains(character)) {
-				bracketCheck ++;
+
 				prevBrac = opBrackets.indexOf(character);
 				
 				newBrac.add(closeBrackets.charAt(prevBrac));
@@ -43,8 +43,8 @@ public class string_bracket_checker {
 			}
 
 		}
-		System.out.println(bracketCheck);
-		if (trigger == false && bracketCheck == 0) {
+
+		if (trigger == false && newBrac.size() == 0) {
 			System.out.println("Valid");
 		}else {
 			System.out.println("Invalid");
