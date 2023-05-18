@@ -11,28 +11,33 @@ public class Test {
 	public static int lengthOfLongestSubstring(String s) {
 		int max = 0;
 		for (int i = 0; i < s.length()-max; i++) {
-			int localMax = getMaxString(s.substring(i))[0];
-			if(localMax > max)
-				max = localMax;
-			i += getMaxString(s.substring(i))[1];
+			IJVals vals = getMaxString(s.substring(i));
+			if(vals.length > max)
+				max = vals.length;
+			i += vals.position;
 		}
 		return max;
 	}
 
-	private static int[] getMaxString(String str) {
+	private static IJVals getMaxString(String str) {
 		// TODO Auto-generated method stub
-        int arr[] = new int[2];
+		IJVals value = new IJVals();
 		for(int i = 0; i< str.length(); i++) {
-          arr[0]=i;
 			for(int j = 0; j< i; j++) {
 				if(str.charAt(j) == str.charAt(i)) {
-					arr[1]=j;
-					return arr;
+					value.length=i;
+					value.position=j;
+					return value;
 				}
 			}
 		}
-    arr[0]++;
-	return arr;
+		value.length = str.length();
+		return value;
 	}
+}
+
+class IJVals{
+	int length;
+	int position;
 }
 
