@@ -1,6 +1,6 @@
 package com.leetcode;
 
-public class Test {
+public class Longest_Substring {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
